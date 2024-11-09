@@ -78,3 +78,26 @@ export const SOCIALS: Socials = [
   //     HREF: "https://twitter.com/markhorn_dev",
   //   },
 ];
+
+export const STACK = [
+  {
+    TEXT: "Astro",
+    ICON: "astro",
+    HREF: "https://astro.build",
+  },
+  {
+    TEXT: "Javascript",
+    ICON: "javascript",
+    HREF: "https://www.javascript.com",
+  },
+  {
+    TEXT: "Typescript",
+    ICON: "typescript",
+    HREF: "https://www.typescriptlang.org",
+  },
+  {
+    TEXT: "Tailwind",
+    ICON: "tailwind",
+    HREF: "https://tailwindcss.com",
+  },
+];

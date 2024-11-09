@@ -18,3 +18,9 @@ export type Socials = {
   TEXT: string;
   HREF: string;
 }[];
+
+export type Stack = {
+  TEXT: string;
+  ICON: string;
+  HREF: string;
+}[];
