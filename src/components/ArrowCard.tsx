@@ -25,14 +25,14 @@ export default function ArrowCard({ collection, entry, pill }: Props) {
             {formatDate(new Date(entry.publishedAt))}
           </div>
         </div>
-        <div class="font-semibold mt-3 text-black dark:text-white">
+        <div class="font-bold mt-3 text-black dark:text-white text-xl">
           {entry.title}
         </div>
 
         <div class="text-sm line-clamp-2">{entry.brief}</div>
         <ul class="flex flex-wrap mt-2 gap-1">
           {entry.tags?.map(({ name }) => (
-            <li class="text-xs uppercase py-0.5 px-1 rounded bg-black/5 dark:bg-white/20 text-black/75 dark:text-white/75">
+            <li class="text-xs uppercase py-0.5 px-1.5 rounded bg-black/5 dark:bg-white/20 text-black/75 dark:text-white/75">
               {name}
             </li>
           ))}
