@@ -1,0 +1,39 @@
+---
+import { type CollectionEntry, getCollection } from "astro:content";
+import PageLayout from "../../layouts/PageLayout.astro";
+import TopLayout from "../../layouts/TopLayout.astro";
+import BottomLayout from "../../layouts/BottomLayout.astro";
+import ArticleTopLayout from "../../layouts/ArticleTopLayout.astro";
+import ArticleBottomLayout from "../../layouts/ArticleBottomLayout.astro";
+import { getAllPosts, getPost } from "../../lib/hashnode/client";
+import type { Post } from "../../lib/hashnode/schema";
+
+// Create the static blog pages
+export async function getStaticPaths() {
+  const posts = await getAllPosts();
+  return posts.publication.posts.edges.map(({ node }) => ({
+    params: { slug: node.slug },
+    props: node,
+  }));
+}
+
+// Get the requested post
+type Props = Post;
+
+const slug = Astro.params.slug;
+const post = await getPost(slug);
+const { title, brief } = post;
+---
+
+<PageLayout title={title} description={brief}>
+  <TopLayout>
+    <div class="animate">
+      <ArticleTopLayout entry={post} collection="blog" />
+    </div>
+  </TopLayout>
+  <BottomLayout>
+    <div class="animate">
+      <ArticleBottomLayout entry={post} collection="blog" />
+    </div>
+  </BottomLayout>
+</PageLayout>

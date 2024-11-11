@@ -1,0 +1,27 @@
+---
+import { getCollection } from "astro:content";
+import PageLayout from "../../layouts/PageLayout.astro";
+import TopLayout from "../../layouts/TopLayout.astro";
+import BottomLayout from "../../layouts/BottomLayout.astro";
+import { BLOG } from "../../constants";
+import { getAllPosts } from "../../lib/hashnode/client";
+import Blog from "../../components/Blog.tsx";
+
+const data = await getAllPosts();
+const posts = data.publication.posts.edges;
+
+const tags = posts.flatMap((post) => post.node.tags);
+---
+
+<PageLayout title={BLOG.TITLE} description={BLOG.DESCRIPTION}>
+  <TopLayout>
+    <div class="animate page-heading">
+      {BLOG.TITLE}
+    </div>
+  </TopLayout>
+  <BottomLayout>
+    <div class="animate">
+      <Blog client:load tags={tags} data={posts} />
+    </div>
+  </BottomLayout>
+</PageLayout>
