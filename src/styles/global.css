@@ -2,7 +2,7 @@
 @tailwind components;
 @tailwind utilities;
 
-@layer base {
+/* @layer base {
   @font-face {
     font-family: "Atkinson";
     src: url("/fonts/atkinson-regular.woff") format("woff");
@@ -18,7 +18,7 @@
     font-style: normal;
     font-display: swap;
   }
-}
+} */
 
 html {
   overflow-y: scroll;
