@@ -63,8 +63,12 @@ const { title, description, image = "/open-graph.jpg" } = Astro.props;
 
 <link
   rel="stylesheet"
-  href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/styles/default.min.css"
+  href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.15.10/styles/hybrid.min.css"
 />
 <script
-  src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/highlight.min.js"
+  src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.15.10/highlight.min.js"
 ></script>
+<script>
+  // @ts-ignore
+  window.hljs.initHighlightingOnLoad();
+</script>
